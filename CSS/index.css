@@ -10,105 +10,204 @@ body{
     background-color: rgb(228, 225, 225);
 }
 
-.hero {
-    min-height: 85vh;
-    background-image: url("/images/pipcke-living-room-8578263.jpg");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 4rem 1.5rem 6rem;
-}
-
-.hero-content {
-    text-align: center;
-    color: white;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-
-}
-
-.yireh {
-    color: rgb(248, 236, 217);
-    font-family: "Raleway", sans-serif;
-    font-weight: 380;
-    font-style: italic;
-}
-
-
-.hero-content h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 1rem;
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: bold;
-    
-}
-
-
-.hero-content p {
-    font-size: clamp(1rem, 2.2vw, 1.4rem);
-    text-decoration: underline rgb(248, 236, 217);
-    margin-bottom: 1rem;
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: bold;
-}
-
-
-
-
 .navbar {
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    transform: none;
     display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-    padding: 25px 25px 16px;
-    width: min(95%, 1100px); /* limita el ancho y se adapta al tamaño de pantalla */
-    justify-content: space-between; /* logo a la izquierda, resto a la derecha */
+    gap: 5rem;
+    justify-content: space-around; 
     align-items: center;
-    border-bottom: 4px solid rgba(0, 0, 0, 0.615); /* línea justo debajo del navbar */
-    
-    z-index: 5;
-    margin-top: 10px;
-    
+    width: 100%; 
+    padding: 24px 0%;
+    z-index: 9999;
+    background-color: transparent;
+    transition: background-color 0.4s ease; /* Transición suave */
 }
 
-/* .logo {
+.navbar.scrolled {
+    background-color: rgba(10, 42, 81, 0.95); /* Color al hacer scroll */
 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index:9999;
 }
- */
+
+.logo h1 {
+    color: white;
+    font-size: 24px; 
+    margin: 0;      
+    line-height: 1; 
+}
+
+.logo {
+    display: flex;
+    align-items: center; 
+}
+
+.derecha {
+    display: flex; 
+    align-items: center; 
+    gap: 2rem; 
+}
+
 .menu {
     display: flex;
-    gap: 1rem; /* evita que el último elemento se separe demasiado */
-    font-size: 24px;
-    margin-left: auto; /* empuja el menú y el botón hacia la derecha */
+    gap: 2rem; 
+
 }
 
-.menu li a {
-    display: block;
-    padding: 0.4rem 0.6rem;
+.navbar a {
+    font-size: 16px;
     color: white;
-    font-weight: bold;
-    color: rgb(16, 16, 16);
-    text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.516);
+    display: inline-block;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.navbar a:hover {
+    color: orange;
 }
 
 .btn-cotizar {
-    margin-left: 1rem; /* separación entre el menú y el botón */
-    background-color: rgba(201, 188, 168, 0.897);
-    padding: 6px;
-    border-radius: 7px;
-    border: solid 1px rgba(243, 225, 225, 0.842);
+    margin-left: 1rem; 
+    background-color: rgba(255, 255, 255, 0.897);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 24px; 
 }
 
 .btn-cotizar a {
     color: black;
-    font-weight: bold;
-    font-size: 24px;
+    display: block;
+    text-align: center;
+    font-weight: 500;
+}
+.btn-cotizar:hover {
+    background-color: rgb(17, 78, 148);
+}
+.btn-cotizar a:hover {
+    color: white;
+    cursor: pointer;
 }
 
+/* HERO */
+
+.hero {
+position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;  
+   padding-top: 80px;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; 
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        rgba(10, 42, 81, 0.9) 0%, 
+        rgba(10, 42, 81, 0.4) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: 15%;  
+    position: relative;
+    z-index: 2;
+}
+
+.contenido-hero {
+    position: relative;
+    z-index: 2;
+    color: white;
+    width: 100%;
+    max-width: 600px;       
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.contenido-hero h1 {
+    font-size: 7.3rem;
+    font-weight: lighter;
+    line-height: 0.8;
+}
+.Titulo-e {
+    font-family: "Imperial Script", cursive;
+    font-size: 7rem;
+    color: rgb(252, 144, 95);
+    display: inline-block;
+}
+.contenido-hero p {
+    font-size: 23px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+.cta-hero button {
+    margin-top: 60px;
+    padding: 20px 40px;     
+    border-radius: 30px;      
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;  
+    transition: 0.3s ease;
+}
+
+.cta-proyecto {
+    background-color: rgb(193, 112, 14);
+    color: white;
+}
+
+.cta-proyecto:hover {
+    background-color: rgb(152, 73, 4);
+}
+
+.cta-portafolio {
+    background-color: transparent;
+    color: white;
+    border: solid 1px white !important;
+}
+
+.cta-portafolio:hover {
+    background-color: rgba(255, 255, 255, 0.236);
+}
+
+
+
+.estadistica-hero {
+    display: flex;
+    border-top: solid 1px white;
+    margin: 10px;
+    padding-top: 70px;
+}
+
+.estadistica-hero .info-datos {
+    font-size: 17px;
+    width: 300px;
+}
+.estadistica-hero p {
+    font-size: 40px;
+}
