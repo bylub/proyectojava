@@ -27,7 +27,6 @@ body{
 
 .navbar.scrolled {
     background-color: rgba(10, 42, 81, 0.95); /* Color al hacer scroll */
-
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     z-index:9999;
 }
@@ -96,7 +95,7 @@ body{
 .hero {
 position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;  
    padding-top: 80px;
@@ -210,4 +209,228 @@ position: relative;
 }
 .estadistica-hero p {
     font-size: 40px;
+}
+
+
+/* Seccion Servicios */
+
+/* Variables de color basadas en el diseño (estilo Shadcn/UI) */
+:root {
+  --primary: #1a1a1a;
+  --secondary: #f4f4f5;
+  --accent: #c9850f; /* Un violeta común en Tailwind, puedes cambiarlo */
+  --muted-foreground: #71717a;
+  --white: #ffffff;
+}
+
+/* Estilos de Sección */
+.section-servicios {
+  padding: 6rem 0; /* py-24 */
+  background-color: var(--secondary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header-content {
+  max-width: 56rem; /* max-w-4xl */
+  margin-bottom: 4rem; /* mb-16 */
+}
+
+/* Tipografía */
+.text-subtitle {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.text-title {
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Responsive text sizes */
+  font-family: serif;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.text-description {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  max-width: 42rem;
+}
+
+.italic { font-style: italic; }
+
+/* Grid de Tarjetas */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Tarjeta (Card) */
+.service-card {
+  position: relative;
+  background: var(--white);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+/* Imagen */
+.image-container {
+  height: 12rem; /* h-48 */
+  overflow: hidden;
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.1);
+}
+
+/* Icono flotante */
+.icon-container {
+  position: absolute;
+  top: -2.5rem;
+  right: 1.5rem;
+  height: 4rem;
+  width: 4rem;
+  background-color: var(--accent);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .icon-container {
+  transform: translateY(-0.5rem);
+}
+
+/* Contenido de la tarjeta */
+.card-body {
+  padding: 2.5rem 1.5rem 1.5rem; /* pt-10 */
+  position: relative;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-family: serif;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.card-text {
+  color: var(--muted-foreground);
+  line-height: 1.625;
+}
+
+
+
+
+
+/* Grid configurado para 4 columnas en desktop */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* 1 columna en móvil */
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en desktop */
+  }
+}
+
+/* Tarjeta Estilo Minimalista */
+.service-card {
+  position: relative;
+  background: var(--white);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-gray);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Placeholder para la imagen */
+.image-container {
+  height: 10rem; 
+  background-color: #e2e2e2; /* Gris neutro hasta que pongas la imagen */
+  overflow: hidden;
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: grayscale(100%); /* Las mantiene grises por ahora */
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.05);
+}
+
+/* Caja del Icono neutra */
+.icon-container {
+  position: absolute;
+  top: -2rem;
+  right: 1.5rem;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: var(--primary);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.card-body {
+  padding: 2.5rem 1.2rem 1.5rem;
+  position: relative;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
 }
